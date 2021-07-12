@@ -5,13 +5,15 @@ let parent=document.getElementById('cookies');
 console.log(parent);
 
 let hours = ['6am', '7am', '8am', '9am', '10 am', '11 am', '12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am']
-let Total=0;
+//let Total=0;
+
 // Object literals
 let seattle = {
    name:" seattle",
     min: 23,
     max: 65,
     avg: 6.3,
+    Total:0,
     avgCustomer: [],
     avgCookies: [],
 
@@ -31,7 +33,7 @@ let seattle = {
             
 
             this.avgCookies[i]= Math.floor(this.avg * this.avgCustomer[i]);
-            Total=Total+this.avgCookies[i];
+            this.Total=this.Total+this.avgCookies[i];
             console.log(this.avgCookies[i]);
             
         }
@@ -43,7 +45,7 @@ let seattle = {
 
 seattle.customerBHour();
 seattle.CookiesBHour();
-console.log(Total); 
+//console.log(this.Total); 
 
 
 
@@ -102,7 +104,7 @@ seattle.render=function () {
     }
     let liElement= document.createElement('li');
     ulElement.appendChild(liElement);
-    liElement.textContent="Total" +": " +  Total + " "+"cookies";
+    liElement.textContent="Total" +": " +  this.Total + " "+"cookies";
    
     
     }
@@ -115,6 +117,7 @@ seattle.render=function () {
          min: 3,
          max: 24,
          avg: 1.2,
+         Total:0,
          avgCustomer: [],
          avgCookies: [],
      
@@ -134,7 +137,7 @@ seattle.render=function () {
                  
      
                  this.avgCookies[i]= Math.floor(this.avg * this.avgCustomer[i]);
-                 Total=Total+this.avgCookies[i];
+                 this.Total=this.Total+this.avgCookies[i];
                  console.log(this.avgCookies[i]);
                  
              }
@@ -146,7 +149,7 @@ seattle.render=function () {
      
      Tokyo.customerBHour();
      Tokyo.CookiesBHour();
-     console.log(Total); 
+     //console.log(this.Total); 
      
      
      
@@ -202,19 +205,20 @@ seattle.render=function () {
          }
          let liElement= document.createElement('li');
          ulElement.appendChild(liElement);
-         liElement.textContent="Total" +": " +  Total + " "+"cookies";
+         liElement.textContent="Total" +": " + this.Total + " "+"cookies";
         
          
          }
          Tokyo.render();
 
-         /////////////////////////////////////////////////////////////////////////////////////
+    //      /////////////////////////////////////////////////////////////////////////////////////
 
          let Dubai = {
             name:" Dubai",
              min: 11,
              max: 38,
              avg: 3.7,
+             Total:0,
              avgCustomer: [],
              avgCookies: [],
          
@@ -234,7 +238,7 @@ seattle.render=function () {
                      
          
                      this.avgCookies[i]= Math.floor(this.avg * this.avgCustomer[i]);
-                     Total=Total+this.avgCookies[i];
+                     this.Total=this.Total+this.avgCookies[i];
                      console.log(this.avgCookies[i]);
                      
                  }
@@ -246,7 +250,7 @@ seattle.render=function () {
          
          Dubai.customerBHour();
          Dubai.CookiesBHour();
-         console.log(Total); 
+         //console.log(Total); 
          
          
          
@@ -305,7 +309,7 @@ seattle.render=function () {
              }
              let liElement= document.createElement('li');
              ulElement.appendChild(liElement);
-             liElement.textContent="Total" +": " +  Total + " "+"cookies";
+             liElement.textContent="Total" +": " + this.Total + " "+"cookies";
             
              
              }
@@ -318,6 +322,7 @@ seattle.render=function () {
              min: 20,
              max: 38,
              avg: 2.3,
+             Total:0,
              avgCustomer: [],
              avgCookies: [],
          
@@ -337,7 +342,7 @@ seattle.render=function () {
                      
          
                      this.avgCookies[i]= Math.floor(this.avg * this.avgCustomer[i]);
-                     Total=Total+this.avgCookies[i];
+                     this.Total=this.Total+this.avgCookies[i];
                      console.log(this.avgCookies[i]);
                      
                  }
@@ -349,7 +354,7 @@ seattle.render=function () {
          
          Paris.customerBHour();
          Paris.CookiesBHour();
-         console.log(Total); 
+         //console.log(Total); 
          
          
          
@@ -408,7 +413,7 @@ seattle.render=function () {
              }
              let liElement= document.createElement('li');
              ulElement.appendChild(liElement);
-             liElement.textContent="Total" +": " +  Total + " "+"cookies";
+             liElement.textContent="Total" +": " + this.Total + " "+"cookies";
             
              
              }
@@ -422,6 +427,7 @@ seattle.render=function () {
              min: 2,
              max: 16,
              avg: 4.6,
+             Total:0,
              avgCustomer: [],
              avgCookies: [],
          
@@ -441,7 +447,7 @@ seattle.render=function () {
                      
          
                      this.avgCookies[i]= Math.floor(this.avg * this.avgCustomer[i]);
-                     Total=Total+this.avgCookies[i];
+                     this.Total=this.Total+this.avgCookies[i];
                      console.log(this.avgCookies[i]);
                      
                  }
@@ -453,7 +459,7 @@ seattle.render=function () {
          
          Lima.customerBHour();
          Lima.CookiesBHour();
-         console.log(Total); 
+         //console.log(Total); 
          
          
          
@@ -512,7 +518,7 @@ seattle.render=function () {
              }
              let liElement= document.createElement('li');
              ulElement.appendChild(liElement);
-             liElement.textContent="Total" +": " +  Total + " "+"cookies";
+             liElement.textContent="Total" +": " + this.Total + " "+"cookies";
             
              
              }
