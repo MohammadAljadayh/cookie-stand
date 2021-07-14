@@ -177,6 +177,8 @@ Paris.render();
 Lima.render();
 
 
+
+
 // Footer Function 
 let Total2=0;
 
@@ -207,9 +209,6 @@ hours.render = function () {
         headingRow.appendChild(thElement);
 
         // text conent
-    
-
-
 let text=seattle.avgCookies[i]+Tokyo.avgCookies[i]+Dubai.avgCookies[i]+Paris.avgCookies[i]+Lima.avgCookies[i];
         thElement.textContent = text;
         Total2=Total2+text
