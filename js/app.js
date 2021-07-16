@@ -14,7 +14,7 @@ function random(min, max) {
 let hours = ['6am', '7am', '8am', '9am', '10 am', '11 am', '12am', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM']
 //let Total=0;
 
-//let cookies=[];
+let cookies=[];
 function cookie(name, min, max, avg) {
     this.name = name;
     this.min = min;
@@ -23,7 +23,7 @@ function cookie(name, min, max, avg) {
     this.Total = 0;
     this.avgCustomer = [];
     this.avgCookies = [];
-    //cookies.push(this);
+    cookies.push(this);
 }
 cookie.prototype.customerBHour = function () {
 
@@ -51,21 +51,32 @@ let Paris = new cookie('Paris',20,38,2.3);
 let Lima = new cookie('Lima',2,16,4.6);
 
 
+console.log(cookies);
 
-seattle.customerBHour();
-seattle.CookiesBHour();
 
-Tokyo.customerBHour();
-Tokyo.CookiesBHour();
+for (let i = 0; i < cookies.length; i++) 
 
-Dubai.customerBHour();
-Dubai.CookiesBHour();
+{
+ 
+    cookies[i].customerBHour();
+    cookies[i].CookiesBHour();
+    
 
-Paris.customerBHour();
-Paris.CookiesBHour();
+}
+// seattle.customerBHour();
+// seattle.CookiesBHour();
 
-Lima.customerBHour();
-Lima.CookiesBHour();
+// Tokyo.customerBHour();
+// Tokyo.CookiesBHour();
+
+// Dubai.customerBHour();
+// Dubai.CookiesBHour();
+
+// Paris.customerBHour();
+// Paris.CookiesBHour();
+
+// Lima.customerBHour();
+// Lima.CookiesBHour();
 
 
 
@@ -84,7 +95,8 @@ Lima.CookiesBHour();
 </table> */}
 
 //Heder function
-hours.render = function () {
+
+function header () {
 
 
 
@@ -122,13 +134,13 @@ hours.render = function () {
     thElement2.textContent = "Daily Location Total";
 }
 
-hours.render();
+header();
 
 
 
 
 
-
+//Main
 cookie.prototype.render= function () {
 
 
@@ -177,16 +189,66 @@ Paris.render();
 Lima.render();
 
 
+// git the form by id 
+let cookiesForm = document.getElementById('form');
+
+
+//add event listener 
+cookiesForm.addEventListener('submit',submitter)
+
+
+function submitter(event)
+{
+
+  
+  event.preventDefault();
+  console.log(event);
+  let name=event.target.lacationName.value;
+  console.log(name);
+
+  let MinN=parseInt(event.target.min.value);
+  console.log(MinN);
+
+  let maxN=parseInt(event.target.max.value);
+  console.log( maxN);
+
+  let AvgN=parseFloat(event.target.avg.value);
+  console.log(AvgN);
+
+  let addShop=new cookie (name,MinN,maxN,AvgN);
+  console.log(addShop);
+
+  
+  table.textContent="";
+  header();
+  addShop.customerBHour();
+  addShop.CookiesBHour();
+
+
+  for (let i = 0; i < cookies.length; i++) 
+
+  {
+    //cookies[i].avgCookies=[];
+    //cookies[i].avgCustomer=[];
+      //cookies[i].customerBHour();
+     // cookies[i].CookiesBHour();
+      cookies[i].render();
+      //cookies[i].Total=0;
+  
+  }
+
+footer();
+
+  
+}
+
 
 
 // Footer Function 
-let Total2=0;
-
-hours.render = function () {
 
 
 
-    // creating the header row:
+ function footer() {
     let headingRow = document.createElement('tr');
 
     // append it o the table
@@ -198,32 +260,40 @@ hours.render = function () {
     headingRow.appendChild(thElement1);
 
     // text conent
-    thElement1.textContent = "Total";
+    thElement1.textContent ="TotalBHours";
 
 
-    for (let i = 0; i < hours.length; i++) {
-        // make th element
-        let thElement = document.createElement('th');
+  let TotalOfTotal = 0;
 
-        // append
-        headingRow.appendChild(thElement);
+  for (let i = 0; i < hours.length; i++) {
+    let  totalBH = 0;
+    for( let j = 0; j < cookies.length; j++) {
+        totalBH += cookies[j].avgCookies[i];
+      console.log(  totalBH);
+      TotalOfTotal += cookies[j].avgCookies[i];
 
-        // text conent
-let text=seattle.avgCookies[i]+Tokyo.avgCookies[i]+Dubai.avgCookies[i]+Paris.avgCookies[i]+Lima.avgCookies[i];
-        thElement.textContent = text;
-        Total2=Total2+text
     }
-    // make th element
-    let thElement2 = document.createElement('th');
-    // append
-    headingRow.appendChild(thElement2);
-    // text conent
-    thElement2.textContent = Total2;
-}
 
-hours.render();
+    let tdElement = document.createElement('td');
+    tdElement.textContent = totalBH;
+    headingRow.appendChild(tdElement);
+ 
+  }
+  let tdElement = document.createElement('td');
+  tdElement.textContent = TotalOfTotal;
+  headingRow.appendChild(tdElement);
+  table.appendChild(headingRow);
+  console.log( TotalOfTotal);
+ 
+ }
+ 
+
+footer();
 
 
+
+
+  
 
 
 
