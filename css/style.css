@@ -4,6 +4,9 @@
     border: 1px solid black;
     border-collapse: collapse;
   } 
+
+  
+
   *{
     box-sizing: border-box;
 }
@@ -111,4 +114,6 @@ button{
   font-weight: bold;
 
 }
+
+
 
